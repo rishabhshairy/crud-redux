@@ -4,3 +4,11 @@
 form {
     padding: 30px;
 }
+.post {
+    padding-left: 30px;
+    margin-top: 10px;
+    height: fit-content;
+    width: fit-content;
+    border: 2px solid red;
+    border-radius: 3.5px;
+}
