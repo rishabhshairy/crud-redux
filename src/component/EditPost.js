@@ -1,36 +1,39 @@
-import React from "react";
+import React, { Component } from "react";
+import { updatePost } from "../actions/ActionCreator";
 import { connect } from "react-redux";
-import "../App.css";
-import { addPost } from "../actions/ActionCreator";
-export class PostForm extends React.Component {
-  constructor(props) {
+
+class EditPost extends Component {
+  constructor() {
     super();
     this.getTitle = React.createRef();
     this.getDescription = React.createRef();
   }
-
   handleSubmit = (event) => {
     event.preventDefault();
-    const title = this.getTitle.current.value;
-    const description = this.getDescription.current.value;
+    const newTitle = this.getTitle.current.value;
+    const newDescription = this.getDescription.current.value;
 
     const payload = {
-      id: new Date().toTimeString(),
-      title,
-      description
+      newTitle,
+      newDescription,
     };
-
-    this.props.dispatch(addPost(payload.id,payload.title,payload.description));
+    this.props.dispatch(
+      updatePost(this.props.post.id, {
+        title: payload.newTitle,
+        postDescription: payload.newDescription,
+      })
+    );
   };
   render() {
     return (
       <div>
-        <h1>Create Post</h1>
+        <h1>Edit Post</h1>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             placeholder="Enter Title"
             ref={this.getTitle}
+            defaultValue = {this.props.post.title}
           ></input>
           <br></br>
           <br></br>
@@ -39,15 +42,15 @@ export class PostForm extends React.Component {
             cols="30"
             placeholder="Enter Post Description"
             ref={this.getDescription}
+            defaultValue = {this.props.post.postDescription}
           ></textarea>
           <br></br>
           <br></br>
-          <button type="submit">Post</button>
+          <button type="submit">Update</button>
         </form>
       </div>
     );
   }
 }
 
-// Adding connect Function to dispatch actions
-export default connect()(PostForm);
+export default connect()(EditPost);
