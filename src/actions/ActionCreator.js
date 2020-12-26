@@ -1,4 +1,4 @@
-import { ADD_POST } from "./ActionTypes"
+import { ADD_POST, DELETE_POST } from "./ActionTypes"
 
 export const addPost = (id,title,postDescription) => {
     return {
@@ -9,4 +9,13 @@ export const addPost = (id,title,postDescription) => {
             postDescription
         }
     }
-} 
+}
+
+export const deletePost = (id) => {
+    return {
+        type: DELETE_POST,
+        payload: {
+            id
+        }
+    }
+}

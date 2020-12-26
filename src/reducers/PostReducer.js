@@ -1,10 +1,11 @@
-import { ADD_POST } from "../actions/ActionTypes";
+import { ADD_POST, DELETE_POST } from "../actions/ActionTypes";
 
 export const postReducer = (state = [], action) => {
   switch (action.type) {
     case ADD_POST:
       return [...state, action.payload];
-
+    case DELETE_POST:
+      return state.filter((post) => post.id !== action.payload.id);
     default:
       return state;
   }
