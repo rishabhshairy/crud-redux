@@ -5,7 +5,9 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <h1 className="title">Posts</h1>
+      <div className="navbar">
+        <h1 className="center">Posts It</h1>
+      </div>
       <PostForm></PostForm>
       <AllPost></AllPost>
     </div>

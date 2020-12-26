@@ -26,9 +26,9 @@ class EditPost extends Component {
   };
   render() {
     return (
-      <div>
-        <h1>Edit Post</h1>
-        <form onSubmit={this.handleSubmit}>
+      <div className="post-container">
+        <h1  className="post-heading">Edit Post</h1>
+        <form onSubmit={this.handleSubmit} className="form">
           <input
             type="text"
             placeholder="Enter Title"

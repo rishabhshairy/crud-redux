@@ -24,9 +24,9 @@ export class PostForm extends React.Component {
   };
   render() {
     return (
-      <div>
-        <h1>Create Post</h1>
-        <form onSubmit={this.handleSubmit}>
+      <div className="post-container">
+        <h1 className="post-heading">Create Post</h1>
+        <form onSubmit={this.handleSubmit} className="form">
           <input
             type="text"
             placeholder="Enter Title"
