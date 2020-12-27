@@ -17,10 +17,13 @@ export class PostForm extends React.Component {
     const payload = {
       id: new Date().toTimeString(),
       title,
-      description
+      description,
+      edit: false
     };
 
-    this.props.dispatch(addPost(payload.id,payload.title,payload.description));
+    this.props.dispatch(addPost(payload));
+    this.getTitle.current.value = "";
+    this.getDescription.current.value = "";
   };
   render() {
     return (

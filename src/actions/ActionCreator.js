@@ -1,13 +1,13 @@
 import { ADD_POST, DELETE_POST, EDIT_POST, UPDATE_POST } from "./ActionTypes";
 
-export const addPost = (id, title, postDescription) => {
+export const addPost = (payload) => {
   return {
     type: ADD_POST,
     payload: {
-      id,
-      title,
-      postDescription,
-      edit: false
+      id: payload.id,
+      title: payload.title,
+      postDescription: payload.description,
+      edit: payload.edit,
     },
   };
 };
@@ -24,19 +24,18 @@ export const deletePost = (id) => {
 export const editPOst = (id) => {
   return {
     type: EDIT_POST,
-    payload: {
-      id,
-    },
+    id
   };
 };
 
-export const updatePost = (id, { title, postDescription }) => {
+export const updatePost = (id, payload) => {
   return {
     type: UPDATE_POST,
+    id: id,
     payload: {
-      id,
-      title,
-      postDescription,
+      title: payload.newTitle,
+      postDescription: payload.newDescription,
+      edit: payload.edit,
     },
   };
 };

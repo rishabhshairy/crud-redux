@@ -8,25 +8,25 @@ import {
 export const postReducer = (state = [], action) => {
   switch (action.type) {
     case ADD_POST:
-      return [...state, action.payload];
+      return state.concat([action.payload]);
     case DELETE_POST:
       return state.filter((post) => post.id !== action.payload.id);
     case EDIT_POST:
       return state.map((post) =>
-        post.id === action.payload.id ? { ...post, edit: !post.edit } : post
+        post.id === action.id ? { ...post, edit: !post.edit } : post
       );
     case UPDATE_POST:
       return state.map((post) => {
-        if (post.id === action.payload.id) {
-          console.log(action)
+        console.log(post);
+        if (post.id === action.id) {
           return {
             ...post,
             title: action.payload.title,
             postDescription: action.payload.postDescription,
-            edit: !post.edit,
+            edit: action.payload.edit,
           };
         } else {
-          return state;
+          return post;
         }
       });
     default:
