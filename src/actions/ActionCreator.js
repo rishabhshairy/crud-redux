@@ -1,4 +1,4 @@
-import { ADD_POST, DELETE_POST, EDIT_POST, UPDATE_POST } from "./ActionTypes";
+import { ADD_POST, DELETE_POST, EDIT_POST, UPDATE_POST,LIKE_POST, DISLIKE_POST } from "./ActionTypes";
 
 export const addPost = (payload) => {
   return {
@@ -8,6 +8,8 @@ export const addPost = (payload) => {
       title: payload.title,
       postDescription: payload.description,
       edit: payload.edit,
+      likes: payload.likes,
+      dislikes: payload.dislikes,
     },
   };
 };
@@ -24,7 +26,7 @@ export const deletePost = (id) => {
 export const editPOst = (id) => {
   return {
     type: EDIT_POST,
-    id
+    id,
   };
 };
 
@@ -39,3 +41,18 @@ export const updatePost = (id, payload) => {
     },
   };
 };
+
+export const likePost = (id) => {
+  return {
+    type: LIKE_POST,
+    id
+  };
+};
+
+export const dislikePost = (id) => {
+  return {
+    type: DISLIKE_POST,
+    id
+  };
+};
+
