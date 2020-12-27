@@ -18,7 +18,9 @@ export class PostForm extends React.Component {
       id: new Date().toTimeString(),
       title,
       description,
-      edit: false
+      edit: false,
+      likes: 0,
+      dislikes: 0
     };
 
     this.props.dispatch(addPost(payload));
