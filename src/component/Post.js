@@ -8,14 +8,20 @@ export class Post extends Component {
       <div className="post">
         <h2 className="post_title">{this.props.post.title}</h2>
         <h3 className="post_message">{this.props.post.postDescription}</h3>
-        <button className="edit" onClick={() => this.props.dispatch(editPOst(this.props.post.id))}>
-          Edit
-        </button>
-        <button className="delete"
-          onClick={() => this.props.dispatch(deletePost(this.props.post.id))}
-        >
-          Delete
-        </button>
+        <div className="control-buttons">
+          <button
+            className="edit"
+            onClick={() => this.props.dispatch(editPOst(this.props.post.id))}
+          >
+            Edit
+          </button>
+          <button
+            className="delete"
+            onClick={() => this.props.dispatch(deletePost(this.props.post.id))}
+          >
+            Delete
+          </button>
+        </div>
       </div>
     );
   }
