@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { deletePost, editPOst } from "../actions/ActionCreator";
+import {
+  deletePost,
+  dislikePost,
+  editPOst,
+  likePost,
+} from "../actions/ActionCreator";
 import "../App.css";
 import FontAwesome from "react-fontawesome";
 export class Post extends Component {
@@ -23,7 +28,13 @@ export class Post extends Component {
           >
             Edit
           </button>
-          <button className="vote">
+          {/* Like Functionality */}
+          <button
+            className="vote"
+            onClick={() => {
+              this.props.dispatch(likePost(this.props.post.id));
+            }}
+          >
             <FontAwesome
               className="super-crazy-colors"
               name="thumbs-up"
@@ -31,7 +42,13 @@ export class Post extends Component {
             />
             <span>{this.props.post.likes}</span>
           </button>
-          <button className="vote">
+          {/* Dislike Functionality */}
+          <button
+            className="vote"
+            onClick={() => {
+              this.props.dispatch(dislikePost(this.props.post.id));
+            }}
+          >
             <FontAwesome
               className="super-crazy-colors"
               name="thumbs-down"
