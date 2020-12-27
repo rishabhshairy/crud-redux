@@ -8,6 +8,8 @@ export const addPost = (payload) => {
       title: payload.title,
       postDescription: payload.description,
       edit: payload.edit,
+      likes: payload.likes,
+      dislikes: payload.dislikes
     },
   };
 };
